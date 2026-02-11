@@ -3,132 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>MartialDev - Future of Development</title>
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
-    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260211hn-news">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#2563eb',
+                        'brand-dark': '#0f172a',
+                        'brand-light': '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="stars"></div>
-    <div class="twinkling"></div>
+<body class="font-sans antialiased">
     
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="/logo.svg" alt="MartialDev" class="logo">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/70 backdrop-blur-xl border-b border-white/20 z-50 transition-all duration-500 shadow-lg shadow-black/5" id="navbar" style="transform: translateY(0); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="/logo.svg" alt="MartialDev" class="h-10 transition-transform hover:scale-105">
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#features" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Work</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="px-6 py-2 bg-brand-blue text-white rounded-md hover:bg-blue-700 transition-colors font-medium">Contact</a></li>
+                </ul>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link nav-link-blue">Home</a></li>
-                <li><a href="#features" class="nav-link nav-link-blue">Features</a></li>
-                <li><a href="#about" class="nav-link nav-link-red">About</a></li>
-                <li><a href="#contact" class="nav-link nav-link-red">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <div class="glitch-wrapper">
-                <h1 class="glitch"><span class="text-blue">Martial</span><span class="text-red">Dev</span></h1>
-            </div>
-            <p class="tagline">The Future of <span class="highlight-blue">Web</span> and <span class="highlight-red">App Development</span></p>
-            <p class="subtitle">Empowering Businesses with cutting-edge software</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get Started</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+    <!-- Hero Section with Parallax -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="home" style="background: linear-gradient(135deg, #0a1628 0%, #0f2941 25%, #1a1a2e 50%, #16213e 75%, #0d1b2a 100%); position: relative;">
+        <!-- Parallax background with tech aesthetic -->
+        <div class="parallax-bg absolute inset-0 z-0" style="
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(33, 150, 243, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(103, 58, 183, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 50%);
+            animation: floatParallax 20s ease-in-out infinite;
+        "></div>
+        <!-- Tech mesh overlay -->
+        <div class="absolute inset-0 z-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cline x1=%220%22 y1=%220%22 x2=%22100%22 y2=%22100%22 stroke=%22%23ffffff%22 stroke-width=%220.5%22/%3E%3Cline x1=%22100%22 y1=%220%22 x2=%220%22 y2=%22100%22 stroke=%22%23ffffff%22 stroke-width=%220.5%22/%3E%3C/svg%3E'); opacity: 0.05;"></div>
+        <!-- Floating decorative elements -->
+        <div class="floating-element floating-element-1"></div>
+        <div class="floating-element floating-element-2"></div>
+        <div class="floating-element floating-element-3"></div>
+        <div class="max-w-7xl mx-auto px-6 py-32 relative z-10">
+            <div class="text-center space-y-8">
+                <h1 class="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+                    <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Martial</span><span style="color: #FF6B6B;">Dev</span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-cyan-100 max-w-3xl mx-auto font-light">
+                    The Future of Web and App Development
+                </p>
+                <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+                    Empowering Businesses with cutting-edge software
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <a href="#contact" class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Get Started
+                    </a>
+                    <a href="#about" class="px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-50 transition-all font-semibold text-lg border-2 border-gray-200 hover:border-gray-300">
+                        Learn More
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="hero-animation">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-3"></div>
-        </div>
-    </header>
-
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title"><span class="highlight-blue">What We</span> <span class="highlight-red">Focus On</span></h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Purpose-Built Websites</h3>
-                    <p>We design and develop websites that are fast, clear, and built around real business goals — not just visuals.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Practical Web Apps</h3>
-                    <p>From dashboards to custom functionality, we build web applications that solve real problems and scale with use.</p>
-                </div>
-            </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
         </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="section-title"><span class="highlight-blue">Our</span> <span class="highlight-red">Work</span></h2>
-            <div class="portfolio-grid">
-                <a href="https://limarococo.com" target="_blank" rel="noopener noreferrer" class="portfolio-item portfolio-item-1">
-                    <div class="portfolio-screenshot">
-                        <!-- LimaRococo blocks iframe embedding, gradient background shows instead -->
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>LimaRococo</h3>
-                            <p>Premium coconut products</p>
-                            <span class="portfolio-link">Visit Site →</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-glow"></div>
-                </a>
-                <a href="https://canelaceylon.com" target="_blank" rel="noopener noreferrer" class="portfolio-item portfolio-item-2">
-                    <div class="portfolio-screenshot">
-                        <iframe src="https://canelaceylon.com" scrolling="no" title="Canela Ceylon"></iframe>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>CanelaCeylon</h3>
-                            <p>Ceylon cinnamon e-commerce platform</p>
-                            <span class="portfolio-link">Visit Site →</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-glow"></div>
-                </a>
-                <a href="https://riceterra.com" target="_blank" rel="noopener noreferrer" class="portfolio-item portfolio-item-3">
-                    <div class="portfolio-screenshot">
-                        <iframe src="https://riceterra.com" scrolling="no" title="Rice Terra"></iframe>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>RiceTerra</h3>
-                            <p>Premium rice products</p>
-                            <span class="portfolio-link">Visit Site →</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-glow"></div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="container">
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="99">0</div>
-                    <div class="stat-label">Uptime %</div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-label">Projects Delivered</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="24">0</div>
-                    <div class="stat-label">Support 24/7</div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Team Members</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About <span class="highlight-blue">Martial</span><span class="highlight-red">Dev</span></h2>
-            <div class="about-content">
+    <script>
+    (function() {
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            if (isNaN(target)) return;
+            
+            let current = 0;
+            const increment = target / 50;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+        
+        // Start animation immediately
+        document.querySelectorAll('.stat-number').forEach(el => {
+            animateCounter(el);
+        });
+    })();
+    </script>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-white" id="features">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    What We Focus On
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Building solutions that drive real business outcomes
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 parallax-section">
+                <div class="group p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-blue-100">
+                    <div class="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Purpose-Built Websites</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        We design and develop websites that are fast, clear, and built around real business goals — not just visuals.
+                    </p>
+                </div>
+                <div class="group p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-indigo-100">
+                    <div class="w-14 h-14 bg-indigo-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Practical Web Apps</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        From dashboards to custom functionality, we build web applications that solve real problems and scale with use.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50" id="portfolio">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Our Work
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Real projects delivering real results
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 parallax-section">
+                <a href="https://limarococo.com" target="_blank" rel="noopener noreferrer" class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-400 to-teal-500 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-white text-6xl font-bold opacity-20">LR</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">LimaRococo</h3>
+                        <p class="text-gray-600 mb-4">Premium coconut products</p>
+                        <span class="inline-flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                            Visit Site 
+                            <svg class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                <a href="https://canelaceylon.com" target="_blank" rel="noopener noreferrer" class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-video relative overflow-hidden">
+                        <iframe src="https://canelaceylon.com" scrolling="no" title="Canela Ceylon" class="absolute inset-0 w-full h-full pointer-events-none scale-50 origin-top-left transform translate-x-0 translate-y-0" style="width: 200%; height: 200%;"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">CanelaCeylon</h3>
+                        <p class="text-gray-600 mb-4">Ceylon cinnamon e-commerce platform</p>
+                        <span class="inline-flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                            Visit Site 
+                            <svg class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                <a href="https://riceterra.com" target="_blank" rel="noopener noreferrer" class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-video relative overflow-hidden">
+                        <iframe src="https://riceterra.com" scrolling="no" title="Rice Terra" class="absolute inset-0 w-full h-full pointer-events-none scale-50 origin-top-left transform translate-x-0 translate-y-0" style="width: 200%; height: 200%;"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">RiceTerra</h3>
+                        <p class="text-gray-600 mb-4">Premium rice products</p>
+                        <span class="inline-flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                            Visit Site 
+                            <svg class="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Technologies We Use
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Building with the latest and most reliable tech stack
+                </p>
+            </div>
+            <div class="tech-stack-grid parallax-section">
+                <div class="tech-card">
+                    <div class="tech-icon">⚛️</div>
+                    <div class="tech-name">React</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📱</div>
+                    <div class="tech-name">React Native</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔷</div>
+                    <div class="tech-name">TypeScript</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🟢</div>
+                    <div class="tech-name">Node.js</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🐍</div>
+                    <div class="tech-name">Python</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎨</div>
+                    <div class="tech-name">Tailwind CSS</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">☁️</div>
+                    <div class="tech-name">AWS</div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔥</div>
+                    <div class="tech-name">Firebase</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-brand-blue">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 text-center parallax-section">
+                <div class="space-y-2">
+                    <div class="text-6xl font-bold text-white">
+                        <span class="stat-number" data-target="100">100</span>%
+                    </div>
+                    <div class="text-xl text-blue-100">Uptime</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-6xl font-bold text-white">
+                        <span class="stat-number" data-target="24">24</span>/7
+                    </div>
+                    <div class="text-xl text-blue-100">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 bg-gradient-to-br from-slate-50 to-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Our Process
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    A proven methodology to bring your vision to life
+                </p>
+            </div>
+            <div class="process-timeline parallax-section">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <div class="process-title">Discovery & Strategy</div>
+                        <div class="process-description">
+                            We start by understanding your business goals, target audience, and technical requirements to create a comprehensive project roadmap.
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <div class="process-title">Design & Prototype</div>
+                        <div class="process-description">
+                            Our design team creates intuitive, beautiful interfaces that align with your brand and provide exceptional user experiences.
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <div class="process-title">Development & Testing</div>
+                        <div class="process-description">
+                            We build your solution using industry best practices, with rigorous testing to ensure quality and performance.
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <div class="process-title">Launch & Support</div>
+                        <div class="process-description">
+                            After a smooth deployment, we provide ongoing maintenance and support to keep your solution running perfectly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-white" id="about">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    About <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">MartialDev</span>
+                </h2>
+            </div>
+            <div class="space-y-6 text-lg text-gray-700 leading-relaxed parallax-section">
                 <p>Martialdev is a digital studio focused on building products that are designed to grow.</p>
                 <p>We start where most businesses begin — with a website — and build forward from there. As needs evolve, we help teams transition into platforms, applications, and systems that support real users, real workflows, and real scale.</p>
                 <p>The name Martial reflects our approach: disciplined, intentional, and precise. We don't rush builds or chase trends. Every product we create is shaped with long-term performance, clarity, and usability in mind.</p>
@@ -137,29 +384,198 @@
         </div>
     </section>
 
-    <section class="contact-form" id="contact">
-        <div class="container">
-            <h2 class="section-title"><span class="highlight-blue">Let's</span> <span class="highlight-red">Talk</span></h2>
-            <p class="contact-subtitle">Ready to bring your project to life? Send us your details and we'll get back to you within 24 hours.</p>
-            <form class="form-container" id="contactForm" action="https://formspree.io/f/mrekkyey" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
+    <!-- News & Insights Section -->
+    <section class="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+                    Latest News & Insights
+                </h2>
+                <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+                    Stay updated with the latest tech and digital world news
+                </p>
+            </div>
+            <div class="news-grid parallax-section" id="newsGrid">
+                <!-- News articles loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+    (function() {
+        const newsGrid = document.getElementById('newsGrid');
+        
+        // Fetch from HackerNews API (no CORS issues, no auth needed)
+        async function loadNews() {
+            try {
+                // Get top story IDs
+                const idsResponse = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+                const topIds = await idsResponse.json();
+                
+                // Get first 6 stories
+                const storyPromises = topIds.slice(0, 6).map(id =>
+                    fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(r => r.json())
+                );
+                
+                const stories = await Promise.all(storyPromises);
+                
+                newsGrid.innerHTML = '';
+                stories.forEach(story => {
+                    if (!story || !story.title) return;
+                    
+                    const card = document.createElement('div');
+                    card.className = 'news-card group';
+                    const date = new Date(story.time * 1000);
+                    
+                    card.innerHTML = `
+                        <div class="news-tag">Tech News</div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                            ${story.title}
+                        </h3>
+                        <p class="text-blue-200 mb-4 text-sm">
+                            ${story.title.substring(0, 120)}...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-blue-300">${date.toLocaleDateString()}</span>
+                            <a href="${story.url || 'https://news.ycombinator.com/item?id=' + story.id}" target="_blank" class="text-cyan-400 font-semibold text-sm hover:text-cyan-300 transition-colors">
+                                Read Article →
+                            </a>
+                        </div>
+                    `;
+                    newsGrid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading news:', error);
+                loadFallbackNews();
+            }
+        }
+        
+        function loadFallbackNews() {
+            const fallbackArticles = [
+                {
+                    title: 'The Rise of AI in Enterprise Software',
+                    description: 'Explore how enterprise companies are leveraging AI to transform their operations.',
+                    date: new Date(),
+                    url: 'https://techcrunch.com',
+                    tag: 'AI'
+                },
+                {
+                    title: 'Web Development Trends for 2026',
+                    description: 'Latest frameworks and best practices shaping web development.',
+                    date: new Date(),
+                    url: 'https://dev.to',
+                    tag: 'Web Dev'
+                },
+                {
+                    title: 'Cloud Computing Best Practices',
+                    description: 'Essential strategies for optimizing cloud infrastructure.',
+                    date: new Date(),
+                    url: 'https://aws.amazon.com/blogs/',
+                    tag: 'Cloud'
+                },
+                {
+                    title: 'Cybersecurity Threats in 2026',
+                    description: 'Understanding emerging security challenges and solutions.',
+                    date: new Date(),
+                    url: 'https://www.csoonline.com',
+                    tag: 'Security'
+                },
+                {
+                    title: 'Mobile App Development Evolution',
+                    description: 'How cross-platform frameworks are revolutionizing development.',
+                    date: new Date(),
+                    url: 'https://flutter.dev',
+                    tag: 'Mobile'
+                },
+                {
+                    title: 'DevOps and Continuous Integration',
+                    description: 'Streamlining deployment pipelines for faster releases.',
+                    date: new Date(),
+                    url: 'https://www.docker.com/blog',
+                    tag: 'DevOps'
+                }
+            ];
+            
+            newsGrid.innerHTML = '';
+            fallbackArticles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'news-card group';
+                card.innerHTML = `
+                    <div class="news-tag">${article.tag}</div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                        ${article.title}
+                    </h3>
+                    <p class="text-blue-200 mb-4 text-sm">
+                        ${article.description}
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-blue-300">${article.date.toLocaleDateString()}</span>
+                        <a href="${article.url}" target="_blank" class="text-cyan-400 font-semibold text-sm hover:text-cyan-300 transition-colors">
+                            Read Article →
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                `;
+                newsGrid.appendChild(card);
+            });
+        }
+        
+        // Load news when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadNews);
+        } else {
+            loadNews();
+        }
+    })();
+    </script>
+
+    <!-- CTA Banner -->
+    <section class="py-2 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="cta-banner parallax-section">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's build something amazing together</p>
+                <a href="#contact" class="btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white" id="contact">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12 parallax-section">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Let's Talk
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Ready to bring your project to life? Send us your details and we'll get back to you within 24 hours.
+                </p>
+            </div>
+            <form class="space-y-6 parallax-section" id="contactForm" action="https://formspree.io/f/mrekkyey" method="POST">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" 
+                               placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" 
+                               placeholder="your@email.com">
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" placeholder="Your company (optional)">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="company" class="block text-sm font-semibold text-gray-700 mb-2">Company</label>
+                        <input type="text" id="company" name="company" 
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" 
+                               placeholder="Your company (optional)">
                     </div>
-                    <div class="form-group">
-                        <label for="budget">Budget Range</label>
-                        <select id="budget" name="budget" required>
+                    <div>
+                        <label for="budget" class="block text-sm font-semibold text-gray-700 mb-2">Budget Range</label>
+                        <select id="budget" name="budget" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                             <option value="">Select range</option>
                             <option value="under-5k">Under $5,000</option>
                             <option value="5k-10k">$5,000 - $10,000</option>
@@ -168,9 +584,10 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="project">Project Type</label>
-                    <select id="project" name="project" required>
+                <div>
+                    <label for="project" class="block text-sm font-semibold text-gray-700 mb-2">Project Type</label>
+                    <select id="project" name="project" required 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                         <option value="">What are you building?</option>
                         <option value="website">Website</option>
                         <option value="web-app">Web Application</option>
@@ -178,67 +595,75 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="message">Tell us about your project</label>
-                    <textarea id="message" name="message" required rows="6" placeholder="Share your vision, goals, and any specific requirements..."></textarea>
+                <div>
+                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Tell us about your project</label>
+                    <textarea id="message" name="message" required rows="6" 
+                              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" 
+                              placeholder="Share your vision, goals, and any specific requirements..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary submit-btn">
-                    <span class="btn-text">Send Request</span>
-                    <span class="btn-arrow">→</span>
+                <button type="submit" 
+                        class="w-full px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <span>Send Request</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
                 </button>
             </form>
         </div>
     </section>
 
     <!-- Chatbot -->
-    <div class="chatbot-container">
-        <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat">
-            <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="chatbot-toggle w-16 h-16 bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-all transform hover:scale-110 flex items-center justify-center" id="chatbotToggle" aria-label="Open chat">
+            <svg class="chat-icon w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
-            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="close-icon w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
-        <div class="chatbot-window" id="chatbotWindow">
-            <div class="chatbot-header">
-                <div class="chatbot-header-info">
-                    <div class="chatbot-avatar">
-                        <span>M</span>
+        <div class="chatbot-window fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl" id="chatbotWindow">
+            <div class="chatbot-header bg-gradient-to-r from-blue-600 to-indigo-600 p-4 rounded-t-2xl flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-blue-600 font-bold">M</span>
                     </div>
-                    <div class="chatbot-title">
-                        <h4>MartialDev Assistant</h4>
-                        <span class="chatbot-status">Online</span>
-                    </div>
-                </div>
-                <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">×</button>
-            </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="chat-message bot-message">
-                    <div class="message-content">
-                        <p>👋 Hey there! I'm the MartialDev assistant. How can I help you today?</p>
+                    <div>
+                        <h4 class="text-white font-semibold">MartialDev Assistant</h4>
+                        <span class="text-blue-100 text-sm">Online</span>
                     </div>
                 </div>
+                <button class="text-white hover:text-gray-200 text-2xl" id="chatbotClose" aria-label="Close chat">×</button>
             </div>
-            <div class="chatbot-quick-replies" id="quickReplies">
-                <button class="quick-reply" data-message="What services do you offer?">Services</button>
-                <button class="quick-reply" data-message="How much does it cost?">Pricing</button>
-                <button class="quick-reply" data-message="How long will it take?">Timeline</button>
-                <button class="quick-reply" data-message="Do you provide support after launch?">Support</button>
+            <div class="chatbot-messages h-96 overflow-y-auto p-4 space-y-4" id="chatbotMessages">
+                <div class="flex gap-2">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span class="text-blue-600 text-sm font-bold">M</span>
+                    </div>
+                    <div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-3 max-w-xs">
+                        <p class="text-gray-800">👋 Hey there! I'm the MartialDev assistant. How can I help you today?</p>
+                    </div>
+                </div>
             </div>
-            <div class="chatbot-whatsapp">
-                <a href="https://wa.me/94701387799" target="_blank" class="whatsapp-btn">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
+            <div class="chatbot-quick-replies p-4 flex flex-wrap gap-2 border-t border-gray-200" id="quickReplies">
+                <button class="quick-reply px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm hover:bg-blue-100 transition-colors" data-message="What services do you offer?">Services</button>
+                <button class="quick-reply px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm hover:bg-blue-100 transition-colors" data-message="How much does it cost?">Pricing</button>
+                <button class="quick-reply px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm hover:bg-blue-100 transition-colors" data-message="How long will it take?">Timeline</button>
+                <button class="quick-reply px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm hover:bg-blue-100 transition-colors" data-message="Do you provide support after launch?">Support</button>
+            </div>
+            <div class="p-4 border-t border-gray-200">
+                <a href="https://wa.me/94701387799" target="_blank" class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
                     Chat on WhatsApp
                 </a>
             </div>
-            <form class="chatbot-input" id="chatbotForm">
-                <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
-                <button type="submit" aria-label="Send message">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <form class="chatbot-input p-4 border-t border-gray-200 flex gap-2" id="chatbotForm">
+                <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <button type="submit" aria-label="Send message" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                     </svg>
@@ -247,38 +672,146 @@
         </div>
     </div>
 
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="/logo.svg" alt="MartialDev" class="footer-logo">
-                    <p>Building the future, one line at a time.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <img src="/logo.svg" alt="MartialDev" class="h-10 mb-4">
+                    <p class="text-gray-400">Building the future, one line at a time.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition-colors">Work</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Discord</a></li>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Connect</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/company/martial-dev-bluesoft/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Discord</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
                 <p>&copy; 2026 MartialDev. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <!-- Inline chatbot handler -->
+    <script>
+    (function() {
+        console.log('=== CHATBOT HANDLER LOADED ===');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('chatbotToggle');
+            const chatWindow = document.getElementById('chatbotWindow');
+            const closeBtn = document.getElementById('chatbotClose');
+            const form = document.getElementById('chatbotForm');
+            const input = document.getElementById('chatInput');
+            const messagesDiv = document.getElementById('chatbotMessages');
+            
+            console.log('✅ Elements found:', {
+                toggle: !!toggle,
+                window: !!chatWindow,
+                closeBtn: !!closeBtn,
+                form: !!form,
+                input: !!input,
+                messagesDiv: !!messagesDiv
+            });
+            
+            // Toggle chatbot
+            function toggleChat() {
+                if (toggle && chatWindow) {
+                    toggle.classList.toggle('active');
+                    chatWindow.classList.toggle('active');
+                    if (input && chatWindow.classList.contains('active')) {
+                        input.focus();
+                    }
+                }
+            }
+            
+            if (toggle) toggle.addEventListener('click', toggleChat);
+            if (closeBtn) closeBtn.addEventListener('click', toggleChat);
+            
+            // Add message
+            function addMessage(text, isUser) {
+                if (!messagesDiv) return;
+                const msg = document.createElement('div');
+                msg.className = `flex gap-2 chat-message ${isUser ? 'user-message' : ''}`;
+                
+                if (isUser) {
+                    msg.innerHTML = `<div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl rounded-br-sm px-4 py-3 max-w-xs"><p class="text-sm">${text}</p></div>`;
+                } else {
+                    msg.innerHTML = `<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-blue-600 text-sm font-bold">M</span></div><div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-3 max-w-xs"><p class="text-gray-800 text-sm">${text}</p></div>`;
+                }
+                
+                messagesDiv.appendChild(msg);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                console.log('✅ Message added:', {text, isUser});
+            }
+            
+            // Get response
+            function getResponse(userMsg) {
+                const msg = userMsg.toLowerCase();
+                
+                if (msg.includes('service')) return 'We offer website development, mobile apps, and custom software solutions.';
+                if (msg.includes('price') || msg.includes('cost')) return 'Pricing varies based on project complexity. Let\'s discuss your needs!';
+                if (msg.includes('timeline') || msg.includes('how long')) return 'Most projects take 4-12 weeks depending on scope.';
+                if (msg.includes('support')) return 'Yes! We provide ongoing support and maintenance after launch.';
+                if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) return 'Hey! Welcome to MartialDev. How can I help you today? 😊';
+                if (msg.includes('about') || msg.includes('who')) return 'MartialDev is a digital studio building products designed to grow with your business.';
+                if (msg.includes('contact') || msg.includes('reach')) return 'You can reach us via the form or WhatsApp. We respond within 24 hours!';
+                
+                return 'Great question! Feel free to reach out on WhatsApp for more details. 💬';
+            }
+            
+            // Handle form submit
+            if (form && input) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const text = input.value.trim();
+                    if (!text) return;
+                    
+                    addMessage(text, true);
+                    input.value = '';
+                    
+                    setTimeout(() => {
+                        addMessage(getResponse(text), false);
+                    }, 300);
+                });
+                console.log('✅ Form handler added');
+            }
+            
+            // Handle quick replies
+            const quickBtns = document.querySelectorAll('.quick-reply');
+            console.log('Quick reply buttons found:', quickBtns.length);
+            
+            quickBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const text = this.getAttribute('data-message');
+                    console.log('Quick reply clicked:', text);
+                    addMessage(text, true);
+                    
+                    setTimeout(() => {
+                        addMessage(getResponse(text), false);
+                    }, 300);
+                });
+            });
+            
+            console.log('=== CHATBOT READY ===');
+        });
+    })();
+    </script>
+    
+    <script src="/script.js?v=20260211hn-news"></script>
 </body>
 </html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #f5f5f5;
+        }
+        
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 64px;
+            height: 64px;
+            background: #2563eb;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
+            position: relative;
+        }
+        
+        .chatbot-toggle .chat-icon {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            width: 28px;
+            height: 28px;
+        }
+        
+        .chatbot-toggle .close-icon {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            width: 28px;
+            height: 28px;
+        }
+        
+        .chatbot-toggle.active .chat-icon {
+            display: none;
+        }
+        
+        .chatbot-toggle.active .close-icon {
+            display: block;
+        }
+        
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 384px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chatbot-window.active {
+            display: block !important;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            padding: 20px;
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .success { border-color: #10b981; }
+        .error { border-color: #ef4444; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Chatbot Functionality Test</h1>
+    
+    <div id="status"></div>
+    
+    <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h2>Test Instructions:</h2>
+        <ol style="line-height: 2;">
+            <li>Click the blue button in the bottom-right corner</li>
+            <li>The chatbot window should appear</li>
+            <li>The button icon should change from chat to X</li>
+            <li>Click the X to close</li>
+        </ol>
+    </div>
+    
+    <!-- Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h3>✅ Chatbot Working!</h3>
+            <p>If you can see this, the chatbot is functioning correctly.</p>
+        </div>
+        <div style="padding: 20px;">
+            <p>Great! The chatbot opens and closes properly.</p>
+            <p>Click the X button above or the blue button to close.</p>
+        </div>
+    </div>
+    
+    <script>
+        const statusDiv = document.getElementById('status');
+        const toggle = document.getElementById('chatbotToggle');
+        const window = document.getElementById('chatbotWindow');
+        
+        function updateStatus(message, type = 'status') {
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+        
+        if (toggle && window) {
+            updateStatus('✅ Elements found successfully! Click the blue button.', 'success');
+            
+            toggle.addEventListener('click', function() {
+                console.log('Button clicked!');
+                toggle.classList.toggle('active');
+                window.classList.toggle('active');
+                
+                const isOpen = window.classList.contains('active');
+                updateStatus(
+                    isOpen ? '✅ Chatbot OPENED! Icon changed to X.' : '✅ Chatbot CLOSED! Icon changed to chat.',
+                    'success'
+                );
+            });
+        } else {
+            updateStatus('❌ ERROR: Elements not found!', 'error');
+        }
+    </script>
+</body>
+</html>

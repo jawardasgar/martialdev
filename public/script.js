@@ -1,130 +1,126 @@
-// MartialDev - Interactive Scripts
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
+    console.log('=== Script loaded ===');
+    
+    // ==================== STATS COUNTER ====================
+    function startCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        console.log('Starting counter for:', element, 'target:', target);
+        
+        if (isNaN(target)) return;
+        
+        let current = 0;
+        const increment = target / 60;
+        
+        const interval = setInterval(() => {
+            current += increment;
+            
+            if (current >= target) {
+                element.textContent = target;
+                clearInterval(interval);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 30);
+    }
+    
+    // Get all stat numbers and start counting
+    setTimeout(() => {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        console.log('Found ' + statNumbers.length + ' stat numbers');
+        
+        statNumbers.forEach(stat => {
+            startCounter(stat);
+        });
+    }, 100);
+    
+    // ==================== PARALLAX SCROLLING ====================
+    
+    // Parallax effect for sections
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+    
+    const parallaxObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    parallaxSections.forEach(section => {
+        parallaxObserver.observe(section);
+    });
+    
+    // Parallax background effect on scroll
+    let ticking = false;
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                const parallaxBg = document.querySelector('.parallax-bg');
+                
+                if (parallaxBg) {
+                    parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+                
+                // Navbar slide effect
+                const navbar = document.getElementById('navbar');
+                if (navbar) {
+                    if (scrolled > lastScroll && scrolled > 100) {
+                        // Scrolling down - hide navbar
+                        navbar.style.transform = 'translateY(-100%)';
+                    } else {
+                        // Scrolling up - show navbar
+                        navbar.style.transform = 'translateY(0)';
+                    }
+                    lastScroll = scrolled;
+                }
+                
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // ==================== SMOOTH SCROLLING ====================
+    const navLinks = document.querySelectorAll('.nav-link, a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href;
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         });
     });
-
-    // Animated counter for stats
-    const animateCounter = (element) => {
-        const target = parseInt(element.getAttribute('data-target'));
-        const increment = target / 100;
-        let current = 0;
-
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                element.textContent = Math.ceil(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target + (element.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
-            }
-        };
-
-        updateCounter();
-    };
-
-    // Intersection Observer for stats animation
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statNumbers = entry.target.querySelectorAll('.stat-number');
-                statNumbers.forEach(stat => {
-                    if (!stat.classList.contains('animated')) {
-                        stat.classList.add('animated');
-                        animateCounter(stat);
-                    }
-                });
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-
-    // Feature cards animation on scroll
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(50px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        cardObserver.observe(card);
-    });
-
-    // Navbar background on scroll
+    
+    // ==================== NAVBAR SCROLL EFFECT ====================
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
     window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.boxShadow = '0 5px 30px rgba(65, 105, 225, 0.3)';
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.classList.add('navbar-scrolled');
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
         } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+            navbar.classList.remove('navbar-scrolled');
             navbar.style.boxShadow = 'none';
         }
+        
+        lastScroll = currentScroll;
     });
 
-    // Button hover effects
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function(e) {
-            const ripple = document.createElement('span');
-            ripple.style.position = 'absolute';
-            ripple.style.width = '0';
-            ripple.style.height = '0';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.5)';
-            ripple.style.transform = 'translate(-50%, -50%)';
-            ripple.style.animation = 'ripple 0.6s ease-out';
-            
-            this.style.position = 'relative';
-            this.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        });
-    });
-
-    // Add ripple animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                width: 300px;
-                height: 300px;
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-animation');
-        if (hero) {
-            hero.style.transform = `translate(-50%, -50%) translateY(${scrolled * 0.5}px)`;
-        }
-    });
-
+    
     // ==================== CHATBOT ====================
     const chatbotToggle = document.getElementById('chatbotToggle');
     const chatbotWindow = document.getElementById('chatbotWindow');
@@ -133,6 +129,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatInput = document.getElementById('chatInput');
     const chatbotMessages = document.getElementById('chatbotMessages');
     const quickReplies = document.querySelectorAll('.quick-reply');
+
+    // Debug logging
+    console.log('Chatbot elements:', {
+        toggle: chatbotToggle,
+        window: chatbotWindow,
+        close: chatbotClose,
+        form: chatbotForm,
+        input: chatInput,
+        messages: chatbotMessages,
+        quickRepliesCount: quickReplies.length
+    });
 
     // Chatbot responses - Sri Lankan market focused
     const botResponses = {
@@ -207,39 +214,91 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle chatbot
     function toggleChatbot() {
+        console.log('toggleChatbot called');
+        console.log('Elements exist:', {
+            toggle: !!chatbotToggle,
+            window: !!chatbotWindow
+        });
+        
+        if (!chatbotToggle || !chatbotWindow) {
+            console.error('Missing chatbot elements!');
+            return;
+        }
+        
         chatbotToggle.classList.toggle('active');
         chatbotWindow.classList.toggle('active');
-        if (chatbotWindow.classList.contains('active')) {
+        
+        console.log('Classes after toggle:', {
+            toggleActive: chatbotToggle.classList.contains('active'),
+            windowActive: chatbotWindow.classList.contains('active')
+        });
+        
+        if (chatbotWindow.classList.contains('active') && chatInput) {
             chatInput.focus();
         }
     }
 
-    chatbotToggle.addEventListener('click', toggleChatbot);
-    chatbotClose.addEventListener('click', toggleChatbot);
+    if (chatbotToggle) {
+        console.log('Adding click listener to chatbot toggle button');
+        chatbotToggle.addEventListener('click', toggleChatbot);
+    } else {
+        console.error('chatbotToggle element not found!');
+    }
+    if (chatbotClose) {
+        console.log('Adding click listener to chatbot close button');
+        chatbotClose.addEventListener('click', toggleChatbot);
+    } else {
+        console.error('chatbotClose element not found!');
+    }
 
     // Add message to chat
     function addMessage(content, isUser = false) {
+        console.log('addMessage called:', { content, isUser, messagesElement: !!chatbotMessages });
+        
+        if (!chatbotMessages) {
+            console.error('❌ chatbotMessages element not found!');
+            return;
+        }
+        
         const messageDiv = document.createElement('div');
-        messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
-        messageDiv.innerHTML = `
-            <div class="message-content">
-                <p>${content.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
-            </div>
-        `;
+        messageDiv.className = `flex gap-2 chat-message ${isUser ? 'user-message' : ''}`;
+        
+        if (isUser) {
+            messageDiv.innerHTML = `
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl rounded-br-sm px-4 py-3 max-w-xs">
+                    <p class="text-sm">${content.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span class="text-blue-600 text-sm font-bold">M</span>
+                </div>
+                <div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-3 max-w-xs">
+                    <p class="text-gray-800 text-sm">${content.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+                </div>
+            `;
+        }
+        
+        console.log('Appending message to chatbotMessages');
         chatbotMessages.appendChild(messageDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        console.log('Message added successfully');
     }
 
     // Show typing indicator
     function showTyping() {
         const typingDiv = document.createElement('div');
-        typingDiv.className = 'chat-message bot-message typing';
+        typingDiv.className = 'flex gap-2 typing';
         typingDiv.innerHTML = `
-            <div class="message-content">
-                <div class="typing-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-blue-600 text-sm font-bold">M</span>
+            </div>
+            <div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-3">
+                <div class="flex gap-1">
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0s"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
                 </div>
             </div>
         `;
@@ -252,83 +311,63 @@ document.addEventListener('DOMContentLoaded', function() {
     function getBotResponse(message) {
         const lowerMessage = message.toLowerCase();
         
-        // Greetings
         if (lowerMessage.match(/^(hi|hello|hey|greetings|ayubowan|kohomada)$/i) || lowerMessage.match(/^hi\b|^hello\b|^hey\b/)) {
             return botResponses.greeting[Math.floor(Math.random() * botResponses.greeting.length)];
         }
-        // Services and projects
         if (lowerMessage.match(/service|offer|do you do|what do you|build|develop|project|handle|kind of|specialize/)) {
             return botResponses.services[0];
         }
-        // Pricing and costs
         if (lowerMessage.match(/price|pricing|cost|budget|how much|rate|fee|lkr|rupee|dollar|charge/)) {
             return botResponses.pricing[0];
         }
-        // Quote requests
         if (lowerMessage.match(/quote|estimate|get a quote|hire|hiring/)) {
             return botResponses.quote[0];
         }
-        // Tech stack and technologies
         if (lowerMessage.match(/tech|technology|stack|framework|language|react|node|python|what.*use/)) {
             return botResponses.techstack[0];
         }
-        // Cross-platform and mobile development
         if (lowerMessage.match(/cross.?platform|flutter|react native|ios|android|mobile app/)) {
             return botResponses.crossplatform[0];
         }
-        // Security
         if (lowerMessage.match(/security|secure|data protection|encrypt|safe|privacy/)) {
             return botResponses.security[0];
         }
-        // Scalability
         if (lowerMessage.match(/scale|scalab|concurrent|users|traffic|10.?000|thousand|performance|handle.*users/)) {
             return botResponses.scalability[0];
         }
-        // Integration
         if (lowerMessage.match(/integrat|salesforce|stripe|payable|existing.*tool|connect.*system|api/)) {
             return botResponses.integration[0];
         }
-        // Timeline
         if (lowerMessage.match(/time|timeline|how long|duration|deadline|finish|complete|deliver|days|weeks|mvp/)) {
             return botResponses.timeline[0];
         }
-        // Support and maintenance
         if (lowerMessage.match(/support|maintain|after|bug|update|amc|abandon|help later|post.?launch/)) {
             return botResponses.support[0];
         }
-        // Hosting and server
         if (lowerMessage.match(/host|server|setup|deploy|infrastructure/)) {
             return botResponses.hosting[0];
         }
-        // Code ownership
         if (lowerMessage.match(/own|ownership|source code|code|github|repository|ip|intellectual/)) {
             return botResponses.ownership[0];
         }
-        // Location
         if (lowerMessage.match(/where|location|located|office|meet|colombo|address|visit/)) {
             return botResponses.location[0];
         }
-        // Working hours
         if (lowerMessage.match(/hour|hours|business hour|working hour|respond|response time|available|when/)) {
             return botResponses.hours[0];
         }
-        // Human handoff
         if (lowerMessage.match(/real person|speak.*person|human|talk.*someone|representative|agent/)) {
             return botResponses.human[0];
         }
-        // WhatsApp
         if (lowerMessage.match(/whatsapp|wa\.me|chat|message you|quick chat/)) {
             return botResponses.whatsapp[0];
         }
-        // Contact
         if (lowerMessage.match(/contact|reach|email|phone|talk|call/)) {
             return botResponses.contact[0];
         }
-        // Portfolio
         if (lowerMessage.match(/portfolio|work|example|showcase|client|previous|done before|show.*app|show.*website/)) {
             return botResponses.portfolio[0];
         }
-        // About
         if (lowerMessage.match(/about|who|company|team|martial|you guys/)) {
             return botResponses.about[0];
         }
@@ -338,37 +377,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle message submission
     function handleMessage(message) {
-        if (!message.trim()) return;
+        console.log('handleMessage called with:', message);
+        if (!message.trim()) {
+            console.log('Message is empty, returning');
+            return;
+        }
         
-        // Add user message
+        console.log('Adding user message');
         addMessage(message, true);
         
-        // Hide quick replies after first message
-        document.getElementById('quickReplies').style.display = 'none';
+        const quickRepliesEl = document.getElementById('quickReplies');
+        if (quickRepliesEl) {
+            quickRepliesEl.style.display = 'none';
+        }
         
-        // Show typing indicator
+        console.log('Showing typing indicator');
         const typingIndicator = showTyping();
         
-        // Simulate response delay
         setTimeout(() => {
             typingIndicator.remove();
             const response = getBotResponse(message);
+            console.log('Bot response:', response);
             addMessage(response);
         }, 1000 + Math.random() * 500);
     }
 
     // Form submission
-    chatbotForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const message = chatInput.value;
-        chatInput.value = '';
-        handleMessage(message);
-    });
+    if (chatbotForm && chatInput) {
+        console.log('✅ Chatbot form and input found, adding submit listener');
+        chatbotForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log('Form submitted!');
+            const message = chatInput.value;
+            console.log('Message:', message);
+            chatInput.value = '';
+            handleMessage(message);
+        });
+    } else {
+        console.error('❌ Chatbot form or input NOT found:', { form: !!chatbotForm, input: !!chatInput });
+    }
 
     // Quick replies
+    console.log('Quick replies count:', quickReplies.length);
     quickReplies.forEach(btn => {
         btn.addEventListener('click', () => {
             const message = btn.getAttribute('data-message');
+            console.log('Quick reply clicked:', message);
             handleMessage(message);
         });
     });
