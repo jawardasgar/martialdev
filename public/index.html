@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="/styles.css?v=20260211hn-news">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'display': ['Space Grotesk', 'sans-serif'],
+                        'sans': ['Manrope', 'sans-serif'],
+                        'display': ['Fraunces', 'serif'],
                     },
                     colors: {
                         'brand-blue': '#2563eb',
@@ -34,69 +34,80 @@
 <body class="font-sans antialiased">
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/70 backdrop-blur-xl border-b border-white/20 z-50 transition-all duration-500 shadow-lg shadow-black/5" id="navbar" style="transform: translateY(0); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); backdrop-filter: blur(20px);">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <img src="/logo.svg" alt="MartialDev" class="h-10 transition-transform hover:scale-105">
-                </div>
-                <ul class="hidden md:flex space-x-8">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#features" class="nav-link">Services</a></li>
-                    <li><a href="#portfolio" class="nav-link">Work</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#contact" class="px-6 py-2 bg-brand-blue text-white rounded-md hover:bg-blue-700 transition-colors font-medium">Contact</a></li>
-                </ul>
+    <nav class="nav-glass" id="navbar">
+        <div class="nav-wrap">
+            <a href="#home" class="nav-brand">
+                <img src="/logo.svg" alt="MartialDev" class="nav-logo">
+                <span class="nav-brand-text">MartialDev</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Work</a>
+                <a href="#about" class="nav-link">About</a>
             </div>
+            <a href="#contact" class="nav-cta">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section with Parallax -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="home" style="background: linear-gradient(135deg, #0a1628 0%, #0f2941 25%, #1a1a2e 50%, #16213e 75%, #0d1b2a 100%); position: relative;">
-        <!-- Parallax background with tech aesthetic -->
-        <div class="parallax-bg absolute inset-0 z-0" style="
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(33, 150, 243, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(103, 58, 183, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 50%);
-            animation: floatParallax 20s ease-in-out infinite;
-        "></div>
-        <!-- Tech mesh overlay -->
-        <div class="absolute inset-0 z-0 opacity-30" style="background-image: url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cline x1=%220%22 y1=%220%22 x2=%22100%22 y2=%22100%22 stroke=%22%23ffffff%22 stroke-width=%220.5%22/%3E%3Cline x1=%22100%22 y1=%220%22 x2=%220%22 y2=%22100%22 stroke=%22%23ffffff%22 stroke-width=%220.5%22/%3E%3C/svg%3E'); opacity: 0.05;"></div>
-        <!-- Floating decorative elements -->
-        <div class="floating-element floating-element-1"></div>
-        <div class="floating-element floating-element-2"></div>
-        <div class="floating-element floating-element-3"></div>
-        <div class="max-w-7xl mx-auto px-6 py-32 relative z-10">
-            <div class="text-center space-y-8">
-                <h1 class="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-                    <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Martial</span><span style="color: #FF6B6B;">Dev</span>
-                </h1>
-                <p class="text-2xl md:text-3xl text-cyan-100 max-w-3xl mx-auto font-light">
-                    The Future of Web and App Development
-                </p>
-                <p class="text-xl text-blue-200 max-w-2xl mx-auto">
-                    Empowering Businesses with cutting-edge software
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <a href="#contact" class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                        Get Started
-                    </a>
-                    <a href="#about" class="px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-50 transition-all font-semibold text-lg border-2 border-gray-200 hover:border-gray-300">
-                        Learn More
-                    </a>
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-orb orb-1"></div>
+            <div class="hero-orb orb-2"></div>
+            <div class="hero-orb orb-3"></div>
+            <div class="hero-noise"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="hero-badge">Apple-grade glass UI</span>
+                    <h1 class="hero-title">
+                        Martial<span class="hero-accent">Dev</span>
+                    </h1>
+                    <p class="hero-lead">The Future of Web and App Development</p>
+                    <p class="hero-sub">Empowering businesses with a disciplined, premium product studio built for velocity.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-primary">Get Started</a>
+                        <a href="#about" class="btn-secondary">Learn More</a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="trust-item"><span>150+</span> Projects</div>
+                        <div class="trust-item"><span>5</span> Years</div>
+                        <div class="trust-item"><span>100%</span> Focus</div>
+                    </div>
+                </div>
+                <div class="hero-glass">
+                    <div class="glass-card">
+                        <div class="glass-header">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <h3>Product Studio</h3>
+                        <p>Design systems, engineering, and AI-ready infrastructure that feels effortless to use.</p>
+                        <div class="glass-list">
+                            <div class="glass-row">UX Systems</div>
+                            <div class="glass-row">Full Stack Delivery</div>
+                            <div class="glass-row">Launch Optimization</div>
+                        </div>
+                    </div>
+                    <div class="glass-mini">
+                        <span class="mini-label">Velocity</span>
+                        <span class="mini-value">3-5 weeks</span>
+                    </div>
+                    <div class="glass-mini">
+                        <span class="mini-label">Quality</span>
+                        <span class="mini-value">Apple-level polish</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+        <div class="hero-scroll">
+            <span>Scroll</span>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section class="section-surface glass-section py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -147,7 +158,7 @@
     </script>
 
     <!-- Features Section -->
-    <section class="py-24 bg-white" id="features">
+    <section class="section-surface glass-section py-24" id="features">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -185,7 +196,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="py-24 bg-gradient-to-b from-white to-gray-50" id="portfolio">
+    <section class="section-surface glass-section section-alt py-24" id="portfolio">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -248,7 +259,7 @@
     </section>
 
     <!-- Technology Stack Section -->
-    <section class="py-24 bg-white">
+    <section class="section-surface glass-section py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -260,35 +271,51 @@
             </div>
             <div class="tech-stack-grid parallax-section">
                 <div class="tech-card">
-                    <div class="tech-icon">⚛️</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/react.svg" alt="React logo">
+                    </div>
                     <div class="tech-name">React</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">📱</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/reactnative.svg" alt="React Native logo">
+                    </div>
                     <div class="tech-name">React Native</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">🔷</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/typescript.svg" alt="TypeScript logo">
+                    </div>
                     <div class="tech-name">TypeScript</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">🟢</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/nodedotjs.svg" alt="Node.js logo">
+                    </div>
                     <div class="tech-name">Node.js</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">🐍</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/python.svg" alt="Python logo">
+                    </div>
                     <div class="tech-name">Python</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">🎨</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/tailwindcss.svg" alt="Tailwind CSS logo">
+                    </div>
                     <div class="tech-name">Tailwind CSS</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">☁️</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/amazonaws.svg" alt="AWS logo">
+                    </div>
                     <div class="tech-name">AWS</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">🔥</div>
+                    <div class="tech-icon">
+                        <img class="mono-icon" src="/icons/simple/firebase.svg" alt="Firebase logo">
+                    </div>
                     <div class="tech-name">Firebase</div>
                 </div>
             </div>
@@ -296,7 +323,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-20 bg-brand-blue">
+    <section class="section-surface glass-section compact-surface py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 text-center parallax-section">
                 <div class="space-y-2">
@@ -316,7 +343,7 @@
     </section>
 
     <!-- Process Section -->
-    <section class="py-24 bg-gradient-to-br from-slate-50 to-white">
+    <section class="section-surface glass-section section-alt py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -368,7 +395,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-24 bg-white" id="about">
+    <section class="section-surface glass-section py-24" id="about">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -385,7 +412,7 @@
     </section>
 
     <!-- News & Insights Section -->
-    <section class="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section class="section-surface glass-section section-alt py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
@@ -529,7 +556,7 @@
     </script>
 
     <!-- CTA Banner -->
-    <section class="py-2 bg-white">
+    <section class="section-surface glass-section compact-surface py-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="cta-banner parallax-section">
                 <h2>Ready to Start Your Project?</h2>
@@ -540,7 +567,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-24 bg-gradient-to-b from-gray-50 to-white" id="contact">
+    <section class="section-surface glass-section py-24" id="contact">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-12 parallax-section">
                 <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -673,7 +700,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-16">
+    <footer class="footer-surface text-gray-300 py-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-12">
                 <div>
