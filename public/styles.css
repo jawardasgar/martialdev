@@ -15,6 +15,12 @@ body {
     color: #e2e8f0;
 }
 
+/* Orbitron font for all headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Orbitron", arial, sans-serif;
+    font-weight: 700;
+}
+
 /* Glassy Navigation Bar */
 #navbar.nav-glass {
     position: fixed;
@@ -60,9 +66,10 @@ body {
 }
 
 .nav-logo {
-    height: 36px;
+    height: 48px;
     width: auto;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4)) brightness(1.15) contrast(1.3);
+    transition: filter 0.3s ease;
 }
 
 .nav-brand-text {
@@ -229,6 +236,9 @@ html {
 .chatbot-toggle {
     box-shadow: 0 10px 40px rgba(21, 93, 252, 0.3);
     position: relative;
+    z-index: 1001;
+    cursor: pointer;
+    pointer-events: auto !important;
 }
 
 .chatbot-toggle .chat-icon {
@@ -258,14 +268,17 @@ html {
 }
 
 .chatbot-window {
-    display: none;
+    display: none !important;
     max-height: 600px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+    z-index: 1000;
+    pointer-events: auto !important;
 }
 
 .chatbot-window.active {
     display: block !important;
+    pointer-events: auto !important;
 }
 
 .chatbot-messages::-webkit-scrollbar {
@@ -364,7 +377,7 @@ html {
 .floating-element-1 {
     width: 400px;
     height: 400px;
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.5), rgba(162, 244, 253, 0.3));
+    background: rgba(0, 217, 255, 0.15);
     top: 10%;
     left: 5%;
     animation-delay: 0s;
@@ -373,7 +386,7 @@ html {
 .floating-element-2 {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, rgba(21, 93, 252, 0.4), rgba(6, 182, 212, 0.3));
+    background: rgba(66, 133, 244, 0.12);
     top: 40%;
     right: 10%;
     animation-delay: 5s;
@@ -382,7 +395,7 @@ html {
 .floating-element-3 {
     width: 350px;
     height: 350px;
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(162, 244, 253, 0.3));
+    background: rgba(168, 85, 247, 0.1);
     bottom: 10%;
     left: 15%;
     animation-delay: 10s;
@@ -408,6 +421,26 @@ html {
     z-index: 0;
 }
 
+/* Particle Network Canvas */
+.particle-network {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.4;
+}
+
+/* Grid Pattern */
+.hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.1;
+    background-image: 
+        linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
 .hero-orb {
     position: absolute;
     width: 420px;
@@ -419,20 +452,20 @@ html {
 }
 
 .orb-1 {
-    background: rgba(6, 182, 212, 0.6);
+    background: rgba(0, 217, 255, 0.4);
     top: -120px;
     left: -60px;
 }
 
 .orb-2 {
-    background: rgba(21, 93, 252, 0.55);
+    background: rgba(66, 133, 244, 0.35);
     right: -120px;
     top: 20%;
     animation-delay: -6s;
 }
 
 .orb-3 {
-    background: rgba(162, 244, 253, 0.4);
+    background: rgba(168, 85, 247, 0.3);
     bottom: -120px;
     left: 35%;
     animation-delay: -12s;
@@ -473,7 +506,8 @@ html {
 .hero-copy {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    width: 100%;
 }
 
 .hero-badge {
@@ -489,29 +523,30 @@ html {
     width: fit-content;
 }
 
-.hero-title {
-    font-family: "Fraunces", serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1.05;
-    font-weight: 700;
-}
-
-.hero-accent {
-    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-rose));
-    -webkit-background-clip: text;
-    color: transparent;
-    margin-left: 6px;
+.hero-logo {
+    height: clamp(64px, 10vw, 120px);
+    width: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.45)) brightness(1.15) contrast(1.25);
 }
 
 .hero-lead {
-    font-size: clamp(1.2rem, 2.3vw, 2rem);
-    color: rgba(233, 238, 247, 0.92);
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    font-weight: 900;
+    color: rgba(233, 238, 247, 0.98);
+    background: linear-gradient(135deg, rgba(233, 238, 247, 1), rgba(162, 244, 253, 0.95));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    width: 100%;
+    letter-spacing: -0.02em;
 }
 
 .hero-sub {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
     color: rgba(197, 207, 223, 0.9);
-    max-width: 520px;
+    max-width: 650px;
+    line-height: 1.6;
 }
 
 .hero-actions {
@@ -598,8 +633,10 @@ html {
 }
 
 .glass-card h3 {
+    font-family: "Orbitron", arial, sans-serif;
     font-size: 1.4rem;
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .glass-card p {
@@ -1206,4 +1243,455 @@ html {
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* ============================================
+   COMPREHENSIVE MOBILE OPTIMIZATION
+   ============================================ */
+
+/* Extra Small Devices (320px - 479px) */
+@media (max-width: 479px) {
+    /* Navigation */
+    .nav-wrap {
+        padding: 0 16px;
+        height: 70px;
+    }
+
+    .nav-logo {
+        height: 40px;
+    }
+
+    .nav-cta {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 120px 0 80px;
+        min-height: auto;
+    }
+
+    .hero-container {
+        padding: 0 16px;
+    }
+
+    .hero-grid {
+        gap: 32px;
+    }
+
+    .hero-copy {
+        gap: 16px;
+    }
+
+    .hero-logo {
+        height: 56px;
+    }
+
+    .hero-lead {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-sub {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    /* Remove glass card on mobile */
+    .hero-glass {
+        display: none;
+    }
+
+    /* General Spacing */
+    section {
+        padding: 40px 16px !important;
+    }
+
+    /* Typography */
+    h1, .font-display {
+        font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+    }
+
+    h2 {
+        font-size: clamp(1.3rem, 4vw, 2rem) !important;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    /* Grids */
+    .team-grid,
+    .tech-stack-grid,
+    .stats-grid,
+    .testimonials-grid,
+    .news-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Cards */
+    .team-card,
+    .tech-card,
+    .stat-card,
+    .testimonial-card,
+    .news-card,
+    .glass-card {
+        padding: 16px !important;
+    }
+
+    /* Portfolio */
+    #portfolio a.group {
+        margin-bottom: 16px;
+    }
+
+    /* Forms */
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    input, select, textarea {
+        padding: 12px !important;
+        font-size: 16px !important;
+    }
+
+    label {
+        font-size: 0.9rem !important;
+    }
+
+    /* Buttons */
+    button {
+        padding: 12px 20px !important;
+        min-height: 44px;
+        font-size: 0.95rem;
+    }
+
+    /* Chatbot */
+    .chatbot-toggle {
+        width: 56px !important;
+        height: 56px !important;
+        z-index: 1001 !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+    }
+
+    .chatbot-window {
+        display: none !important;
+        width: calc(100vw - 24px) !important;
+        max-height: 500px !important;
+        bottom: 16px !important;
+        right: 12px !important;
+        left: 12px !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+    }
+
+    .chatbot-window.active {
+        display: block !important;
+        pointer-events: auto !important;
+    }
+
+    .chatbot-messages {
+        height: 300px !important;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+        padding: 32px 16px !important;
+    }
+
+    .cta-banner h2 {
+        font-size: 1.4rem;
+    }
+
+    .cta-banner p {
+        font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .max-w-3xl {
+        padding: 0 16px !important;
+    }
+
+    /* Footer */
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+
+/* Small Devices (480px - 640px) */
+@media (min-width: 480px) and (max-width: 640px) {
+    section {
+        padding: 48px 20px !important;
+    }
+
+    .hero {
+        padding: 130px 0 90px;
+    }
+
+    .hero-container {
+        padding: 0 20px;
+    }
+
+    .hero-lead {
+        font-size: 2rem;
+    }
+
+    .hero-sub {
+        font-size: 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+
+    .team-grid,
+    .tech-stack-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+    }
+
+    .testimonials-grid,
+    .news-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .chatbot-window {
+        display: none !important;
+        width: calc(100vw - 32px) !important;
+        right: 16px !important;
+        bottom: 20px !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+    }
+
+    .chatbot-window.active {
+        display: block !important;
+        pointer-events: auto !important;
+    }
+
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Medium Devices (641px - 767px) */
+@media (min-width: 641px) and (max-width: 767px) {
+    section {
+        padding: 56px 28px !important;
+    }
+
+    .hero {
+        padding: 140px 0 100px;
+    }
+
+    .hero-container {
+        padding: 0 28px;
+    }
+
+    .hero-lead {
+        font-size: 2.5rem;
+    }
+
+    .hero-sub {
+        font-size: 1.05rem;
+    }
+
+    .team-grid,
+    .tech-stack-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .chatbot-window {
+        display: none !important;
+        width: 380px !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+    }
+
+    .chatbot-window.active {
+        display: block !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* Large Devices (768px and up) */
+@media (min-width: 768px) {
+    section {
+        padding: 64px 32px !important;
+    }
+
+    .hero-glass {
+        display: grid;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .team-grid,
+    .tech-stack-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .chatbot-window {
+        display: none !important;
+        width: 400px !important;
+        bottom: 24px !important;
+        right: 24px !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+    }
+
+    .chatbot-window.active {
+        display: block !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* Extra Large Devices (1024px and up) */
+@media (min-width: 1024px) {
+    section {
+        padding: 96px 48px !important;
+    }
+
+    .hero {
+        padding: 160px 0 120px;
+    }
+
+    .hero-container {
+        padding: 0 48px;
+    }
+
+    .hero-lead {
+        font-size: 4.5rem;
+    }
+
+    .team-grid,
+    .tech-stack-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Touch-Friendly Interactive Elements */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase clickable area on touch devices */
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Remove hover effects on touch */
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    a:hover,
+    .team-card:hover,
+    .news-card:hover,
+    .glass-card:hover {
+        transform: none !important;
+    }
+
+    /* Add active/pressed state */
+    .btn-primary:active,
+    .btn-secondary:active {
+        opacity: 0.9;
+    }
+}
+
+/* Landscape Mobile Devices */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 100px 0 60px;
+        min-height: auto;
+    }
+
+    section {
+        padding: 40px 20px !important;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .chatbot-window {
+        max-height: 400px !important;
+    }
+}
+
+/* High DPI Devices (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-logo,
+    .nav-logo {
+        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.45)) brightness(1.15) contrast(1.25);
+    }
 }

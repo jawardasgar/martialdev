@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ==================== NAVBAR SCROLL EFFECT ====================
     const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
+    let lastScrollPos = 0;
     
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.boxShadow = 'none';
         }
         
-        lastScroll = currentScroll;
+        lastScrollPos = currentScroll;
     });
 
     

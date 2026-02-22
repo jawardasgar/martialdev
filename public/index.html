@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>MartialDev - Future of Development</title>
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/styles.css?v=20260211hn-news">
+    <link rel="stylesheet" href="/styles.css?v=20260222mobile">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -38,7 +40,6 @@
         <div class="nav-wrap">
             <a href="#home" class="nav-brand">
                 <img src="/logo.svg" alt="MartialDev" class="nav-logo">
-                <span class="nav-brand-text">MartialDev</span>
             </a>
             <div class="nav-links">
                 <a href="#home" class="nav-link">Home</a>
@@ -53,28 +54,22 @@
     <!-- Hero Section with Parallax -->
     <section class="hero" id="home">
         <div class="hero-bg">
+            <canvas id="particle-canvas" class="particle-network"></canvas>
             <div class="hero-orb orb-1"></div>
             <div class="hero-orb orb-2"></div>
             <div class="hero-orb orb-3"></div>
+            <div class="hero-grid-pattern"></div>
             <div class="hero-noise"></div>
         </div>
         <div class="hero-container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="hero-badge">Apple-grade glass UI</span>
-                    <h1 class="hero-title">
-                        Martial<span class="hero-accent">Dev</span>
-                    </h1>
-                    <p class="hero-lead">The Future of Web and App Development</p>
+                    <img src="/logo.svg" alt="MartialDev" class="hero-logo">
+                    <h1 class="hero-lead">The Future of Web and App Development</h1>
                     <p class="hero-sub">Empowering businesses with a disciplined, premium product studio built for velocity.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn-primary">Get Started</a>
                         <a href="#about" class="btn-secondary">Learn More</a>
-                    </div>
-                    <div class="hero-trust">
-                        <div class="trust-item"><span>150+</span> Projects</div>
-                        <div class="trust-item"><span>5</span> Years</div>
-                        <div class="trust-item"><span>100%</span> Focus</div>
                     </div>
                 </div>
                 <div class="hero-glass">
@@ -106,25 +101,37 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Team Section -->
     <section class="section-surface glass-section py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number" data-target="150">0</span>
-                    <span class="stat-label">Projects Delivered</span>
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Meet Our Team</h2>
+                <p class="text-xl text-gray-300">Talented professionals dedicated to delivering exceptional results</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <h3 class="team-name">John Developer</h3>
+                    <p class="team-role">Lead Developer</p>
+                    <p class="team-bio">Expert in full-stack development with 8+ years of experience</p>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number" data-target="100">0</span>
-                    <span class="stat-label">Happy Clients</span>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍🎨</div>
+                    <h3 class="team-name">Sarah Designer</h3>
+                    <p class="team-role">Product Designer</p>
+                    <p class="team-bio">Creative designer specializing in UI/UX and brand identity</p>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number" data-target="50">0</span>
-                    <span class="stat-label">Team Members</span>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💻</div>
+                    <h3 class="team-name">Mike Engineer</h3>
+                    <p class="team-role">DevOps Engineer</p>
+                    <p class="team-bio">Infrastructure specialist ensuring seamless deployment and scaling</p>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number" data-target="5">0</span>
-                    <span class="stat-label">Years Experience</span>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <h3 class="team-name">Emma Manager</h3>
+                    <p class="team-role">Project Manager</p>
+                    <p class="team-bio">Strategic leader coordinating projects and client communication</p>
                 </div>
             </div>
         </div>
@@ -577,6 +584,25 @@
                     Ready to bring your project to life? Send us your details and we'll get back to you within 24 hours.
                 </p>
             </div>
+
+            <!-- WhatsApp Quick Contact Button -->
+            <div class="mb-8 text-center parallax-section">
+                <a href="https://wa.me/94758804830?text=Hi%20MartialDev!%20I'm%20interested%20in%20discussing%20a%20project." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    <span>Chat with us on WhatsApp</span>
+                </a>
+                <p class="text-gray-500 mt-3 text-sm">💬 Fastest way to reach us - We typically respond within minutes!</p>
+            </div>
+
+            <!-- Or Divider -->
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex-1 h-px bg-gradient-to-r from-gray-300 to-transparent"></div>
+                <span class="text-gray-600 text-sm font-medium">Or fill out the form below</span>
+                <div class="flex-1 h-px bg-gradient-to-l from-gray-300 to-transparent"></div>
+            </div>
+
             <form class="space-y-6 parallax-section" id="contactForm" action="https://formspree.io/f/mrekkyey" method="POST">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
@@ -640,17 +666,17 @@
     </section>
 
     <!-- Chatbot -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button class="chatbot-toggle w-16 h-16 bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-all transform hover:scale-110 flex items-center justify-center" id="chatbotToggle" aria-label="Open chat">
-            <svg class="chat-icon w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <div class="fixed bottom-6 right-6 z-50" style="position: fixed; bottom: 24px; right: 24px; z-index: 50;">
+        <button class="chatbot-toggle w-16 h-16 bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-all transform hover:scale-110 flex items-center justify-center" id="chatbotToggle" aria-label="Open chat" style="width: 64px; height: 64px; background-color: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative; z-index: 1001; box-shadow: 0 10px 40px rgba(21, 93, 252, 0.3); border: none; color: white;">
+            <svg class="chat-icon w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 28px; height: 28px; display: block;">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
-            <svg class="close-icon w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="close-icon w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 28px; height: 28px; display: none;">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
-        <div class="chatbot-window fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl" id="chatbotWindow">
+        <div class="chatbot-window fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl" id="chatbotWindow" style="position: fixed; bottom: 96px; right: 24px; width: 384px; z-index: 1000;">
             <div class="chatbot-header bg-gradient-to-r from-blue-600 to-indigo-600 p-4 rounded-t-2xl flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
@@ -680,7 +706,7 @@
                 <button class="quick-reply px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm hover:bg-blue-100 transition-colors" data-message="Do you provide support after launch?">Support</button>
             </div>
             <div class="p-4 border-t border-gray-200">
-                <a href="https://wa.me/94701387799" target="_blank" class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
+                <a href="https://wa.me/94758804830" target="_blank" class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
@@ -735,110 +761,19 @@
 
     <!-- Inline chatbot handler -->
     <script>
-    (function() {
-        console.log('=== CHATBOT HANDLER LOADED ===');
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggle = document.getElementById('chatbotToggle');
-            const chatWindow = document.getElementById('chatbotWindow');
-            const closeBtn = document.getElementById('chatbotClose');
-            const form = document.getElementById('chatbotForm');
-            const input = document.getElementById('chatInput');
-            const messagesDiv = document.getElementById('chatbotMessages');
-            
-            console.log('✅ Elements found:', {
-                toggle: !!toggle,
-                window: !!chatWindow,
-                closeBtn: !!closeBtn,
-                form: !!form,
-                input: !!input,
-                messagesDiv: !!messagesDiv
-            });
-            
-            // Toggle chatbot
-            function toggleChat() {
-                if (toggle && chatWindow) {
-                    toggle.classList.toggle('active');
-                    chatWindow.classList.toggle('active');
-                    if (input && chatWindow.classList.contains('active')) {
-                        input.focus();
-                    }
-                }
-            }
-            
-            if (toggle) toggle.addEventListener('click', toggleChat);
-            if (closeBtn) closeBtn.addEventListener('click', toggleChat);
-            
-            // Add message
-            function addMessage(text, isUser) {
-                if (!messagesDiv) return;
-                const msg = document.createElement('div');
-                msg.className = `flex gap-2 chat-message ${isUser ? 'user-message' : ''}`;
-                
-                if (isUser) {
-                    msg.innerHTML = `<div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl rounded-br-sm px-4 py-3 max-w-xs"><p class="text-sm">${text}</p></div>`;
-                } else {
-                    msg.innerHTML = `<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-blue-600 text-sm font-bold">M</span></div><div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-3 max-w-xs"><p class="text-gray-800 text-sm">${text}</p></div>`;
-                }
-                
-                messagesDiv.appendChild(msg);
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                console.log('✅ Message added:', {text, isUser});
-            }
-            
-            // Get response
-            function getResponse(userMsg) {
-                const msg = userMsg.toLowerCase();
-                
-                if (msg.includes('service')) return 'We offer website development, mobile apps, and custom software solutions.';
-                if (msg.includes('price') || msg.includes('cost')) return 'Pricing varies based on project complexity. Let\'s discuss your needs!';
-                if (msg.includes('timeline') || msg.includes('how long')) return 'Most projects take 4-12 weeks depending on scope.';
-                if (msg.includes('support')) return 'Yes! We provide ongoing support and maintenance after launch.';
-                if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) return 'Hey! Welcome to MartialDev. How can I help you today? 😊';
-                if (msg.includes('about') || msg.includes('who')) return 'MartialDev is a digital studio building products designed to grow with your business.';
-                if (msg.includes('contact') || msg.includes('reach')) return 'You can reach us via the form or WhatsApp. We respond within 24 hours!';
-                
-                return 'Great question! Feel free to reach out on WhatsApp for more details. 💬';
-            }
-            
-            // Handle form submit
-            if (form && input) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const text = input.value.trim();
-                    if (!text) return;
-                    
-                    addMessage(text, true);
-                    input.value = '';
-                    
-                    setTimeout(() => {
-                        addMessage(getResponse(text), false);
-                    }, 300);
-                });
-                console.log('✅ Form handler added');
-            }
-            
-            // Handle quick replies
-            const quickBtns = document.querySelectorAll('.quick-reply');
-            console.log('Quick reply buttons found:', quickBtns.length);
-            
-            quickBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const text = this.getAttribute('data-message');
-                    console.log('Quick reply clicked:', text);
-                    addMessage(text, true);
-                    
-                    setTimeout(() => {
-                        addMessage(getResponse(text), false);
-                    }, 300);
-                });
-            });
-            
-            console.log('=== CHATBOT READY ===');
-        });
-    })();
+    // Chatbot is handled by script.js to avoid conflicts
+    console.log('Chatbot will be initialized by script.js');
     </script>
     
-    <script src="/script.js?v=20260211hn-news"></script>
+    <script src="/script.js?v=20260222mobile"></script>
+    <script src="/animated-background.js?v=20260222mobile"></script>
+    <script>
+        // Initialize animated background
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initAnimatedBackground !== 'undefined') {
+                initAnimatedBackground();
+            }
+        });
+    </script>
 </body>
 </html>
