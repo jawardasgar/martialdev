@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "public"],
+  "ext": "ts,js,json,html,css",
+  "ignore": ["dist", "node_modules"],
+  "exec": "ts-node src/app.ts"
+}

@@ -297,6 +297,16 @@ html {
     pointer-events: none;
 }
 
+.particle-network {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 /* Stats Cards */
 .stats-grid {
     display: grid;
@@ -337,6 +347,8 @@ html {
     font-weight: 600;
 }
 
+
+
 /* Technology stack cards */
 .tech-stack-grid {
     display: grid;
@@ -346,13 +358,13 @@ html {
 }
 
 .tech-card {
-    background: white;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     padding: 2rem 1.5rem;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     text-align: center;
-    border: 2px solid transparent;
+    border: 2px solid #475569;
 }
 
 .tech-card:hover {
@@ -375,7 +387,7 @@ html {
 
 .tech-name {
     font-weight: 700;
-    color: #1e293b;
+    color: #f1f5f9;
     font-size: 1rem;
 }
 
@@ -410,11 +422,12 @@ html {
 
 .process-content {
     flex: 1;
-    background: white;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    border: 1px solid #475569;
 }
 
 .process-content:hover {
@@ -425,12 +438,12 @@ html {
 .process-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #f1f5f9;
     margin-bottom: 0.5rem;
 }
 
 .process-description {
-    color: #64748b;
+    color: #cbd5e1;
     line-height: 1.6;
 }
 
@@ -518,12 +531,13 @@ html {
 }
 
 .testimonial-card {
-    background: white;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
+    border: 1px solid #475569;
 }
 
 .testimonial-card:hover {
@@ -540,7 +554,7 @@ html {
 }
 
 .testimonial-text {
-    color: #475569;
+    color: #cbd5e1;
     line-height: 1.8;
     margin-bottom: 1.5rem;
     font-style: italic;
@@ -567,12 +581,12 @@ html {
 
 .testimonial-info h4 {
     font-weight: 700;
-    color: #1e293b;
+    color: #f1f5f9;
     margin-bottom: 0.25rem;
 }
 
 .testimonial-info p {
-    color: #94a3b8;
+    color: #cbd5e1;
     font-size: 0.9rem;
 }
 
@@ -614,8 +628,8 @@ html {
 }
 
 .cta-banner .btn {
-    background: white;
-    color: #667eea;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
     padding: 1rem 2.5rem;
     border-radius: 12px;
     font-weight: 700;
@@ -623,6 +637,7 @@ html {
     display: inline-block;
     text-decoration: none;
     position: relative;
+    border: 2px solid #60a5fa;
 }
 
 .cta-banner .btn:hover {
