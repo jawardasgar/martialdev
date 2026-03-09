@@ -1,0 +1,71 @@
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <canvas id="particle-canvas" class="particle-network"></canvas>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <div class="hero-grid-pattern"></div>
+    <div class="hero-noise"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-grid">
+      <!-- Hero Copy -->
+      <div class="hero-copy">
+        <img src="/logo.svg" alt="MartialDev" class="hero-logo" />
+        <h1 class="hero-lead">The Future of Web and App Development</h1>
+        <p class="hero-sub">
+          Empowering businesses with a disciplined, premium product studio built
+          for velocity.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="#contact"
+            (click)="scrollToSection('contact')"
+            class="btn-primary"
+          >
+            Get Started
+          </a>
+          <a
+            href="#about"
+            (click)="scrollToSection('about')"
+            class="btn-secondary"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Glass Cards (Hidden on Mobile) -->
+      <div class="hero-glass">
+        <div class="glass-card">
+          <div class="glass-header">
+            <span></span><span></span><span></span>
+          </div>
+          <h3>Product Studio</h3>
+          <p>
+            Design systems, engineering, and AI-ready infrastructure that feels
+            effortless to use.
+          </p>
+          <div class="glass-list">
+            <div class="glass-row">UX Systems</div>
+            <div class="glass-row">Full Stack Delivery</div>
+            <div class="glass-row">Launch Optimization</div>
+          </div>
+        </div>
+        <div class="glass-mini">
+          <span class="mini-label">Velocity</span>
+          <span class="mini-value">3-5 weeks</span>
+        </div>
+        <div class="glass-mini">
+          <span class="mini-label">Quality</span>
+          <span class="mini-value">Apple-level polish</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+  </div>
+</section>

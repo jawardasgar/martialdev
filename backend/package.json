@@ -1,0 +1,37 @@
+{
+  "name": "martialdev-backend",
+  "version": "1.0.0",
+  "description": "MartialDev Backend API - Node.js + Express + MongoDB",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "watch": "tsc -w"
+  },
+  "keywords": [
+    "martialdev",
+    "api",
+    "express",
+    "mongodb"
+  ],
+  "author": "MartialDev Team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "joi": "^17.11.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.25",
+    "@types/node": "^20.0.0",
+    "@types/mongoose": "^5.11.97",
+    "@types/cors": "^2.8.17",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.0.0",
+    "ts-node-dev": "^2.0.0"
+  }
+}

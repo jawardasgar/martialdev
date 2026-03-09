@@ -1,0 +1,116 @@
+.footer-surface {
+  background: linear-gradient(
+    135deg,
+    rgba(9, 14, 26, 0.98),
+    rgba(12, 18, 34, 0.98)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: calc(var(--spacing-unit) * 8) 0;
+
+  .footer-grid {
+    gap: calc(var(--spacing-unit) * 4);
+  }
+
+  .footer-brand {
+    max-width: 320px;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  img[alt="MartialDev"] {
+    height: 32px !important;
+    width: auto !important;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(148, 163, 184, 0.82);
+    max-width: 260px;
+  }
+
+  h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 1.5);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    line-height: 1.25;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 1.5);
+    font-size: 14px;
+    color: rgba(203, 213, 225, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.92);
+    }
+  }
+
+  svg {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0;
+  }
+
+  .border-t {
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    margin-top: calc(var(--spacing-unit) * 6);
+    padding-top: calc(var(--spacing-unit) * 4);
+  }
+
+  .footer-bottom {
+    margin-top: calc(var(--spacing-unit) * 6);
+    padding-top: calc(var(--spacing-unit) * 4);
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+    color: rgba(148, 163, 184, 0.84);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: rgba(100, 116, 139, 0.88);
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(148, 163, 184, 0.75);
+  }
+
+  @media (max-width: 767px) {
+    .footer-grid {
+      gap: calc(var(--spacing-unit) * 3);
+    }
+
+    .footer-bottom {
+      align-items: flex-start;
+      gap: calc(var(--spacing-unit) * 1.5);
+      margin-top: calc(var(--spacing-unit) * 5);
+      padding-top: calc(var(--spacing-unit) * 3);
+    }
+  }
+}

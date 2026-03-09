@@ -1,0 +1,156 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Tailwind CSS (v4)
+@import "tailwindcss";
+
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap");
+
+// Tailwind v4 theme: register custom font families as utility classes
+@theme {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Fraunces", serif;
+  --font-heading: "Orbitron", sans-serif;
+  --color-brand-blue: #2563eb;
+  --color-brand-dark: #0f172a;
+  --color-brand-light: #f8fafc;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-rose: #155dfc;
+}
+
+:root {
+  --glass-light: rgba(255, 255, 255, 0.18);
+  --glass-dark: rgba(16, 24, 40, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.24);
+  --ink-dark: #0f172a;
+  --ink-light: #f9fafb;
+  --accent-cyan: #06b6d4;
+  --accent-rose: #155dfc;
+  --spacing-unit: 8px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family:
+    "Manrope",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Orbitron", arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #155dfc, #0b4ae0);
+  border-radius: 6px;
+  border: 3px solid #0f172a;
+
+  &:hover {
+    background: linear-gradient(180deg, #1e6fff, #155dfc);
+  }
+}
+
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid #155dfc;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-contrast: high) {
+  a {
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+svg.w-4,
+svg.h-4 {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+svg.w-5,
+svg.h-5 {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+svg.w-6,
+svg.h-6 {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+svg.w-7,
+svg.h-7 {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+svg.w-8,
+svg.h-8 {
+  width: 32px !important;
+  height: 32px !important;
+}
