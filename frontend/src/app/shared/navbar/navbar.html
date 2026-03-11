@@ -1,15 +1,40 @@
 <!-- Navbar managed by script.js for scroll effects and smooth scrolling -->
 <nav class="nav-glass" id="navbar">
   <div class="nav-wrap">
-    <a href="#home" class="nav-brand">
+    <a href="#home" class="nav-brand" (click)="closeMenu()">
       <img src="/logo.svg" alt="MartialDev" class="nav-logo" />
     </a>
+
+    <!-- Desktop links -->
     <div class="nav-links">
       <a href="#home" class="nav-link">Home</a>
       <a href="#features" class="nav-link">Services</a>
       <a href="#portfolio" class="nav-link">Work</a>
       <a href="#about" class="nav-link">About</a>
     </div>
-    <a href="#contact" class="nav-cta">Contact</a>
+
+    <!-- Desktop CTA -->
+    <a href="#contact" class="nav-cta nav-cta-desktop">Contact</a>
+
+    <!-- Hamburger button (mobile only) -->
+    <button
+      class="mobile-menu-btn"
+      [class.open]="isMenuOpen"
+      (click)="toggleMenu()"
+      aria-label="Toggle menu"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobile-menu" [class.open]="isMenuOpen">
+    <a href="#home" class="mobile-link" (click)="closeMenu()">Home</a>
+    <a href="#features" class="mobile-link" (click)="closeMenu()">Services</a>
+    <a href="#portfolio" class="mobile-link" (click)="closeMenu()">Work</a>
+    <a href="#about" class="mobile-link" (click)="closeMenu()">About</a>
+    <a href="#contact" class="mobile-cta" (click)="closeMenu()">Contact</a>
   </div>
 </nav>

@@ -10,4 +10,14 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   // Scroll handling is done by script.js to avoid conflicts
   // Navbar classes and behavior are controlled by the loaded scripts
+
+  isMenuOpen = false;
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
+  }
 }
